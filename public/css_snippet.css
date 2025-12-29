@@ -1,0 +1,55 @@
+/* Reusable animated border class */
+.animated-border {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.animated-border::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 14px; /* Adjust as needed */
+    background: conic-gradient(#ff8800, #ff0000, #ff8800, #ff0000);
+    animation: rotateBorder 4s linear infinite;
+    z-index: -1;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    padding: 3px; /* Border width */
+    pointer-events: none;
+}
+
+/* Update admissions-btn hover */
+.admissions-btn:hover {
+    color: white;
+    background: #ff8800;
+    transition: all 0.3s ease;
+}
+
+/* Explore button styles */
+.explore-btn {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    position: relative;
+    background: transparent;
+    color: #ff8800;
+    border: 2px solid #ff8800;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    overflow: hidden;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.explore-btn:hover {
+    background: #ff8800;
+    color: white;
+    transform: scale(1.05);
+}

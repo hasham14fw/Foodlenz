@@ -1,0 +1,224 @@
+/* Search Page Styling */
+
+.search-page-container {
+    min-height: 100vh;
+    background: #f5f7fa;
+    padding-bottom: 40px;
+}
+
+.search-hero {
+    background: linear-gradient(135deg, #9e0000 0%, #ff8800 100%);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 30px;
+}
+
+.search-hero h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.search-hero p {
+    font-size: 18px;
+    opacity: 0.95;
+}
+
+.search-section {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+}
+
+.search-bar-container {
+    margin-bottom: 25px;
+}
+
+.search-bar-container input {
+    width: 100%;
+    padding: 18px 25px;
+    font-size: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-bar-container input:focus {
+    border-color: #ff8800;
+    box-shadow: 0 4px 12px rgba(255, 136, 0, 0.15);
+}
+
+.filters-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filters-container select {
+    flex: 1;
+    min-width: 180px;
+    padding: 12px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filters-container select:focus {
+    border-color: #ff8800;
+}
+
+.filter-btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #9e0000, #ff8800);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(158, 0, 0, 0.3);
+}
+
+.recommended-section,
+.results-section {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+}
+
+.recommended-section h2,
+.results-section h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.search-restaurant-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-restaurant-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.search-restaurant-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 18px;
+}
+
+.card-info h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.cuisine-tag {
+    display: inline-block;
+    background: #fff0e0;
+    color: #cc4400;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.location, .category {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.rating-badge {
+    background: #ffd700;
+    color: #333;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.view-btn {
+    background: #ff8800;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-btn:hover {
+    background: #9e0000;
+}
+
+.loading-text, .no-results, .error-text, .info-text {
+    text-align: center;
+    padding: 40px;
+    font-size: 16px;
+    color: #666;
+    grid-column: 1 / -1;
+}
+
+.error-text {
+    color: #d32f2f;
+}
+
+@media (max-width: 768px) {
+    .search-hero h1 {
+        font-size: 32px;
+    }
+    
+    .filters-container {
+        flex-direction: column;
+    }
+    
+    .filters-container select {
+        min-width: 100%;
+    }
+    
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+    }
+}

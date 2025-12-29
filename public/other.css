@@ -1,0 +1,250 @@
+.hero-lower {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 30px 10px; /* increased top and bottom padding */
+  background: #f8f8f8;
+  display: flex; /* add flex for centering */
+  justify-content: center; /* center horizontally */
+}
+
+.scroll-container {
+  display: flex;
+  gap: 15px; /* slightly increased gap for better spacing */
+}
+
+.scroll-container img {
+  max-height: 200px;
+  width: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.scroll-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* =========== Weather Forcast ============== */
+/* ================= Weather Section ================= */
+.weather-container {
+  width: 100%;
+  min-height: 250px;
+  background: linear-gradient(135deg, #ff8800, #9e0000);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 1130px;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+}
+
+.weather-left {
+  flex: 1;
+  min-width: 240px;
+}
+
+.weather-left h1 {
+  margin: 0 0 10px 0;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.weather-left .search {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  display: flex;
+  gap: 5px;
+  width: 100%;
+  max-width: 300px; /* Limit total width */
+  background: rgba(255, 255, 255, 0.2); /* Subtle background container */
+
+  border-radius: 8px;
+}
+
+.weather-left input {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  min-width: 0;
+  flex: 1;
+}
+
+.weather-left button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  background: #ffffff;
+  color: #ff8800; /* Updated color */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.weather-left button:hover {
+  background: #ff8800;
+  color: white;
+  transform: scale(1.05);
+}
+
+.restaurant-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 calc(33.333% - 20px);
+  min-width: 200px;
+  max-width: 250px;
+  position: relative; /* For animated border */
+  z-index: 1;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Add animated border on hover for restaurant card */
+.restaurant-card:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    padding: 2px;
+    background: conic-gradient(#ff8800, #ff0000, #ff8800, #ff0000);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+    animation: rotateBorder 4s linear infinite;
+}
+
+.restaurant-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.restaurant-card h3 {
+  margin: 12px;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+.restaurant-card p {
+  margin: 0 12px 12px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive Weather Section */
+@media (max-width: 992px) {
+  .weather-container {
+    padding: 20px 30px;
+  }
+  .weather-animation {
+    right: 30px;
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .weather-container {
+    min-height: auto;
+    padding: 20px;
+    margin: 15px;
+  }
+
+  .weather-left {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .weather-left h1 {
+    font-size: 22px;
+  }
+
+  .weather-right {
+    width: 100%;
+    text-align: left;
+  }
+
+  .weather-info {
+    position: static;
+    transform: none;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .weather-info div {
+    min-width: 70px;
+  }
+
+  .weather-animation {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 35px;
+  }
+
+  .restaurant-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-container {
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+  }
+
+  .weather-left h1 {
+    font-size: 20px;
+  }
+
+  .weather-left input {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .weather-left button {
+    width: auto;
+    margin-top: 0;
+  }
+
+  .weather-info {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .weather-info div {
+    flex: 1 1 45%;
+    min-width: unset;
+  }
+
+  .weather-animation {
+    font-size: 30px;
+    right: 15px;
+    top: 15px;
+  }
+
+  .restaurant-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

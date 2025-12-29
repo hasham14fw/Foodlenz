@@ -1,0 +1,33 @@
+# Build directories
+build/
+cmake-build-*/
+
+# Environment variables
+.env
+
+# IDE
+.vs/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Compiled files
+*.exe
+*.dll
+*.so
+*.dylib
+*.o
+*.obj
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Dependencies
+asio-master.zip
+
+# Logs
+*.log

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Details - FOODLENZ</title>
+    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="Responsive.css">
+    <link rel="stylesheet" href="css/restaurant.css">
+    <link rel="icon" href="/public/Photoes/logo.jpg" type="image/png">
+</head>
+<body>
+    <div class="top-bar">FOODLENZ</div>
+    <div class="header">
+        <a href="index.html"><img src="/public/Photoes/logo.jpg" alt="Logo" width="90" height="90"></a>
+        <div class="school-name">
+            <div>FOODLENZ</div>
+            <div>Eat Smart, Reach Fast</div>
+        </div>
+
+        <button class="hamburger" id="hamburger">&#9776;</button>
+        <nav id="main-nav">
+            <a href="index.html">HOME</a>
+            <a href="search.html">SEARCH</a>
+            <a href="chatbot.html">AI BOT</a>
+            <a href="route.html">MAP ROUTE</a>
+            <button class="admissions-btn" onclick="logout()">LOGOUT</button>
+        </nav>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">HOME</a>
+        <a href="search.html">SEARCH</a>
+        <a href="chatbot.html">AI BOT</a>
+        <a href="route.html">MAP ROUTE</a>
+        <button class="admissions-btn" onclick="logout()">LOGOUT</button>
+    </div>
+
+    <div class="restaurant-container">
+        <div class="restaurant-header" id="restaurant-header">
+            <div class="loading-spinner">Loading restaurant details...</div>
+        </div>
+
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="switchTab('menu')"><span class="menu-anim"></span> Menu</button>
+            <button class="tab-btn" onclick="switchTab('reviews')">⭐ Reviews</button>
+            <button class="tab-btn" onclick="switchTab('opinion')"><span class="pen-anim"></span> Your Opinion</button>
+        </div>
+
+        <div class="tab-content active" id="menu-tab">
+            <h2>Menu</h2>
+            <div class="menu-grid" id="menu-grid">
+                <p class="loading-text">Loading menu...</p>
+            </div>
+        </div>
+
+        <div class="tab-content" id="reviews-tab">
+            <h2>Customer Reviews</h2>
+            <div class="reviews-list" id="reviews-list">
+                <p class="loading-text">Loading reviews...</p>
+            </div>
+        </div>
+
+        <div class="tab-content" id="opinion-tab">
+            <h2>Share Your Experience</h2>
+            <form class="opinion-form" id="opinion-form">
+                <div class="rating-group">
+                    <label>Taste Rating:</label>
+                    <div class="stars">
+                        <input type="radio" name="taste" value="5" id="taste5"><label for="taste5">★</label>
+                        <input type="radio" name="taste" value="4" id="taste4"><label for="taste4">★</label>
+                        <input type="radio" name="taste" value="3" id="taste3"><label for="taste3">★</label>
+                        <input type="radio" name="taste" value="2" id="taste2"><label for="taste2">★</label>
+                        <input type="radio" name="taste" value="1" id="taste1"><label for="taste1">★</label>
+                    </div>
+                </div>
+                <div class="rating-group">
+                    <label>Ambiance Rating:</label>
+                    <div class="stars">
+                        <input type="radio" name="ambiance" value="5" id="amb5"><label for="amb5">★</label>
+                        <input type="radio" name="ambiance" value="4" id="amb4"><label for="amb4">★</label>
+                        <input type="radio" name="ambiance" value="3" id="amb3"><label for="amb3">★</label>
+                        <input type="radio" name="ambiance" value="2" id="amb2"><label for="amb2">★</label>
+                        <input type="radio" name="ambiance" value="1" id="amb1"><label for="amb1">★</label>
+                    </div>
+                </div>
+                <div class="rating-group">
+                    <label>Overall Rating:</label>
+                    <div class="stars">
+                        <input type="radio" name="overall" value="5" id="ovr5"><label for="ovr5">★</label>
+                        <input type="radio" name="overall" value="4" id="ovr4"><label for="ovr4">★</label>
+                        <input type="radio" name="overall" value="3" id="ovr3"><label for="ovr3">★</label>
+                        <input type="radio" name="overall" value="2" id="ovr2"><label for="ovr2">★</label>
+                        <input type="radio" name="overall" value="1" id="ovr1"><label for="ovr1">★</label>
+                    </div>
+                </div>
+                <textarea id="comment" placeholder="Write your review here..." rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Submit Review</button>
+                <div id="form-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="Animation.js"></script>
+    <script src="js/restaurant.js"></script>
+</body>
+</html>

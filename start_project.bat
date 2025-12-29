@@ -1,0 +1,9 @@
+@echo off
+echo Starting FoodLens AI Project...
+
+echo Starting Database Proxy (Port 8080)...
+start "FoodLens DB Proxy" /min python db_proxy.py
+
+echo Starting Backend Server (Port 3000)...
+echo Please open http://localhost:3000 in your browser.
+backend.exe
