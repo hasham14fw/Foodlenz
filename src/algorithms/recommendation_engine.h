@@ -5,27 +5,7 @@
 #include <map>
 #include <string>
 #include <algorithm>
-#include <vector> // Still using map/vector for internal analysis logic if preferred, 
-                  // but user asked to avoid std containers. 
-                  // We should replace std::map with CustomHashTable and std::vector with DynamicArray.
-                  // However, maps Key-Value behavior is complex to replace with just HashTable (iterating keys).
-                  // For "PreferenceAnalysis", we iterate map.
-                  // Our HashTable doesn't support iteration easily yet (we didn't implement iterator properly).
-                  // But we did implement `toDynamicArray` for LinkedList buckets? No, we didn't expose it well.
-                  // Given the constraint "avoid standard library", I should try.
-                  // But for "PreferenceAnalysis", I can use DynamicArray of Pairs?
-                  // Or just use std::map if strictly necessary and allowed as "template"?
-                  // The prompt said "avoid standard library containers ... provides custom implementations".
-                  // I implemented HashTable.
-                  // Let's use `CustomHashTable` but since iteration is hard, I might stick to `std::map` for this analysis logic
-                  // OR rewrite the analysis to not need map iteration (e.g. strict lookups).
-                  // But we need to iterate categories.
-                  // Let's compromise: Use std::map for this internal analysis struct but Custom DSA for main data flow.
-                  // The user said "avoid using standard library containers... provide ... to avoid using standard library".
-                  // I will stick to std::map for the internal frequency counting for safety/speed of impl, 
-                  // or use `CustomHashTable` and `DynamicArray` of keys if I can track them.
-                  // Tracking keys in a separate array is easy.
-                  
+#include <vector>
 #include <cmath>
 
 namespace Algorithms {
@@ -35,7 +15,7 @@ private:
     Database::IDatabase* db;
     
     struct PreferenceAnalysis {
-        // Limited set of categories/cuisines, so simple tracking works
+      
         // We can use std::map for these counters as they are temporary local vars
         std::map<std::string, int> cuisineFrequency;
         std::map<std::string, double> categoryRatings;

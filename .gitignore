@@ -1,33 +1,33 @@
-# Build directories
-build/
-cmake-build-*/
+# # Build directories
+# build/
+# cmake-build-*/
 
-# Environment variables
-.env
+# # Environment variables
+# #.env
 
-# IDE
-.vs/
-.vscode/
-*.swp
-*.swo
-*~
+# # IDE
+# .vs/
+# .vscode/
+# *.swp
+# *.swo
+# *~
 
-# Compiled files
-*.exe
-*.dll
-*.so
-*.dylib
-*.o
-*.obj
+# # Compiled files
+# *.exe
+# *.dll
+# *.so
+# *.dylib
+# *.o
+# *.obj
 
-# CMake
-CMakeCache.txt
-CMakeFiles/
-cmake_install.cmake
-Makefile
+# # CMake
+# CMakeCache.txt
+# CMakeFiles/
+# cmake_install.cmake
+# Makefile
 
-# Dependencies
-asio-master.zip
+# # Dependencies
+# asio-master.zip
 
-# Logs
-*.log
+# # Logs
+# *.log

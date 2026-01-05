@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Restaurants - FOODLENZ</title>
+    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="Responsive.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="icon" href="Photoes/School Logo.png" type="image/png">
+</head>
+<body>
+    <div class="top-bar">FOODLENZ</div>
+    <div class="header">
+        <a href="index.html">
+            <img src="Photoes/logo.jpg" alt="Logo" width="90" height="90">
+        </a>
+        <div class="school-name">
+            <div>FOODLENZ</div>
+            <div>Eat Smart, Reach Fast</div>
+        </div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="search.html">SEARCH</a>
+            <a href="chatbot.html">AI BOT</a>
+            <a href="route.html">MAP ROUTE</a>
+            <button class="admissions-btn" onclick="logout()">LOGOUT</button>
+        </nav>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">HOME</a>
+        <a href="search.html">SEARCH</a>
+        <a href="chatbot.html">AI BOT</a>
+        <a href="route.html">MAP ROUTE</a>
+        <button class="admissions-btn" onclick="logout()">LOGOUT</button>
+    </div>
+
+    <div class="search-page-container">
+        <div class="search-hero">
+            <h1><div class="glass-anim"></div> Discover Amazing Restaurants</h1>
+            <p>Find your perfect dining experience</p>
+        </div>
+
+        <div class="search-section">
+            <div class="search-bar-container">
+                <input type="text" id="search-input" placeholder="Search restaurants by name..." onkeyup="performSearch()">
+            </div>
+
+            <div class="filters-container">
+                <select id="cuisine-filter" onchange="performSearch()">
+                    <option value="">All Cuisines</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Pakistani">Pakistani</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Indian">Indian</option>
+                    <option value="French">French</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Mexican">Mexican</option>
+                    <option value="Thai">Thai</option>
+                    <option value="American">American</option>
+                </select>
+
+                <select id="city-filter" onchange="performSearch()">
+                    <option value="">All Cities</option>
+                    <option value="Islamabad">Islamabad</option>
+                    <option value="Lahore">Lahore</option>
+                    <option value="Karachi">Karachi</option>
+                </select>
+
+                <select id="rating-filter" onchange="performSearch()">
+                    <option value="0">All Ratings</option>
+                    <option value="4">4+ Stars</option>
+                    <option value="4.5">4.5+ Stars</option>
+                </select>
+
+                <button class="filter-btn" onclick="performSearch()">🔍 Search</button>
+            </div>
+        </div>
+
+        <div class="recommended-section" id="recommended-section">
+            <h2><div class="sparkle-anim"></div> Recommended For You</h2>
+            <div class="restaurant-grid" id="recommended-grid">
+                <p class="loading-text">Loading recommendations...</p>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <h2 id="results-heading">All Restaurants</h2>
+            <div class="restaurant-grid" id="results-grid">
+                <p class="loading-text">Loading restaurants...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="Animation.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

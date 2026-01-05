@@ -1,0 +1,10 @@
+^D:\PROJECT DS FINAL\BUILD\_DEPS\ASIO-SUBBUILD\CMAKEFILES\44857A693020C9031A188FA386CB2A37\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SD:/Project DS Final/build/_deps/asio-subbuild" "-BD:/Project DS Final/build/_deps/asio-subbuild" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/Project DS Final/build/_deps/asio-subbuild/asio-populate.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

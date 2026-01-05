@@ -9,8 +9,7 @@ namespace DSA {
 template<typename T>
 class Stack {
 private:
-    DynamicArray<T> data; // DynamicArray is efficient for Stack (push_back/pop_back is O(1) amortized)
-
+    DynamicArray<T> data; 
 public:
     void push(const T& value) {
         data.push_back(value);
@@ -39,14 +38,7 @@ public:
 template<typename T>
 class Queue {
 private:
-    // LinkedList is efficient for Queue (enqueue at tail, dequeue at head if optimized)
-    // Our SinglyLinkedList append is O(N) because it iterates to tail.
-    // For a proper O(1) Queue, we should use a list with tail pointer or a tailored implementation.
-    // Let's implement a simple Queue with a dedicated internal structure or improve LinkedList.
-    // For this assignment, let's wrap our SinglyLinkedList, acknowledging append is O(N).
-    // BETTER: Use DynamicArray as a circular buffer or just logical queue.
-    // OR: Re-implement a Node-based queue here for O(1).
-    
+
     struct QNode {
         T data;
         QNode* next;
