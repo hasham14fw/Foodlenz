@@ -53,81 +53,8 @@
 }
 
 /* HEADER SIDEBAR (slides from left) */
-.sidebar {
-    position: fixed;
-    top: 0;
-    right: -260px; /* hidden by default */
-    width: 180px;
-    height: 100%;
-    background: #9e0000;
-    color: white;
-    padding-top: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    margin-left: 10px;
-    transition: right 0.3s ease;
-    z-index: 1000;
-    
-}
+/* Navigation Handled via Styles.css */
 
-.sidebar.active {
-    right: 0;
-    
-}
-
-.sidebar a,
-.sidebar .admissions-btn {
-    color: white;
-    text-decoration: none;
-    margin: 15px 10px;
-    font-size: 18px;
-}
-
-.sidebar .admissions-btn {
-    background: red;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.sidebar .admissions-btn:hover {
-    background: #ff2525;
-}
-
-/* PORTAL SIDEBAR (slides from right) */
-.portal-sidebar {
-    position: fixed;
-    top: 0;
-    right: -260px; /* hidden by default */
-    width: 180px;
-    height: 100%;
-    background: #9e0000;
-    color: white;
-    padding-top: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    transition: right 0.3s ease;
-    z-index: 1000;
-}
-
-.portal-sidebar.active {
-    right: 0; /* slide in */
-}
-
-.portal-sidebar a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
-.portal-sidebar a:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
 
 /* Responsive: hide nav and portal links, show hamburgers */
 @media (max-width: 768px) {

@@ -211,7 +211,7 @@ nav#main-nav a:hover::after, nav#main-nav a.active::after {
     background: var(--bg-surface-light);
     border: 1px solid var(--border);
     border-radius: 30px;
-    padding: 25px 50px;
+    padding: 15px 50px;
     margin: 50px auto;
     width: 90%;
     max-width: 1200px;
@@ -430,7 +430,7 @@ nav#main-nav a:hover::after, nav#main-nav a.active::after {
     .header { padding: 15px 20px; }
     nav#main-nav { display: none; }
     .hamburger { display: block; }
-    .weather-container { flex-direction: column; text-align: center; gap: 30px; padding: 25px; width: 95%; margin: 20px auto; }
+    .weather-container { flex-direction: column; text-align: center; gap: 30px; padding: 15px 25px; width: 95%; margin: 20px auto; }
     .weather-left .search { justify-content: center; width: 100%; }
     .weather-left input { width: 100%; max-width: 300px; }
     .footer-links img { width: 45px; height: 45px; } 
