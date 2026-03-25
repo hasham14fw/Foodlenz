@@ -53,7 +53,13 @@
 
             <div class="form-group">
                 <label>Origin</label>
-                <input type="text" id="start-location-input" placeholder="Where are you starting from?">
+                <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <input type="text" id="start-location-input" placeholder="Where are you starting from?" style="flex: 1;">
+                    <button id="pin-location-btn" onclick="pinCurrentLocation()" title="Use My Current Location"
+                            style="background: var(--bg-surface-light); border: 1px solid var(--glass-border); border-radius: 12px; padding: 0 15px; color: var(--accent); cursor: pointer; transition: 0.3s;">
+                        📍
+                    </button>
+                </div>
                 <input type="hidden" id="start-lat">
                 <input type="hidden" id="start-lng">
             </div>
@@ -135,7 +141,11 @@
             }).setView([33.6844, 73.0479], 13);
 
             L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                maxZoom: 20
+                maxZoom: 20,
+                dragging: true,
+                scrollWheelZoom: true,
+                doubleClickZoom: true,
+                touchZoom: true
             }).addTo(map);
 
             L.control.zoom({ position: 'bottomright' }).addTo(map);
@@ -144,6 +154,26 @@
             map.on('click', function(e) {
                 setOriginFromClick(e.latlng);
             });
+            
+            // Ensure map is interactive
+            map.dragging.enable();
+            map.scrollWheelZoom.enable();
+        }
+
+        function pinCurrentLocation() {
+            if ("geolocation" in navigator) {
+                const btn = document.getElementById('pin-location-btn');
+                btn.innerHTML = '⌛';
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const latlng = { lat: position.coords.latitude, lng: position.coords.longitude };
+                    setOriginFromClick(latlng);
+                    map.setView(latlng, 15);
+                    btn.innerHTML = '📍';
+                }, function(err) {
+                    alert('Geolocation failed. Please ensure location access is granted.');
+                    btn.innerHTML = '📍';
+                });
+            } else alert('Geolocation not supported by this browser.');
         }
 
         function setOriginFromClick(latlng) {
