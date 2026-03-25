@@ -213,6 +213,7 @@ nav#main-nav a:hover::after, nav#main-nav a.active::after {
     border-radius: 30px;
     padding: 25px 50px;
     margin: 50px auto;
+    width: 90%;
     max-width: 1200px;
     display: flex;
     justify-content: space-between;
@@ -390,8 +391,8 @@ nav#main-nav a:hover::after, nav#main-nav a.active::after {
 }
 
 .footer-links img {
-    width: 40px;
-    height: 40px;
+    width: 50px; /* Increased from 40px */
+    height: 50px;
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     filter: drop-shadow(0 0 5px rgba(255, 61, 0, 0.2));
 }
@@ -429,10 +430,12 @@ nav#main-nav a:hover::after, nav#main-nav a.active::after {
     .header { padding: 15px 20px; }
     nav#main-nav { display: none; }
     .hamburger { display: block; }
-    .weather-container { flex-direction: column; text-align: center; gap: 30px; padding: 30px; }
+    .weather-container { flex-direction: column; text-align: center; gap: 30px; padding: 25px; width: 95%; margin: 20px auto; }
     .weather-left .search { justify-content: center; width: 100%; }
     .weather-left input { width: 100%; max-width: 300px; }
+    .footer-links img { width: 45px; height: 45px; } 
 }
+
 
 @media (max-width: 650px) {
     #trending-restaurants, #recommended-restaurants {

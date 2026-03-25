@@ -38,21 +38,18 @@
 /*Top line of portals */
 
 .hamburger {
-    display: none; /* hide on laptops and above */
-    font-size: 24px;
+    display: none;
+    font-size: 28px;
     background: none;
     border: none;
     cursor: pointer;
-    color: #0c005b;
-    z-index: 1001;
-    margin-left: 10px;
-    padding: 4px 8px;
+    color: white; /* Changed from navy to white */
+    z-index: 2001; /* Higher than sidebar */
+    padding: 10px;
 }
 
-
-/* Specific hamburger for portal bar to keep it white */
 #portal-hamburger {
-    color: white;
+    color: var(--accent);
 }
 
 /* HEADER SIDEBAR (slides from left) */
@@ -134,9 +131,8 @@
 
 /* Responsive: hide nav and portal links, show hamburgers */
 @media (max-width: 768px) {
-    
-      #portal-hamburger {
-        display: block; /* show portal hamburger on mobile */
+    #portal-hamburger {
+        display: block;
     }
     .header nav {
         display: none;
@@ -146,6 +142,14 @@
     }
     .hamburger {
         display: block;
+    }
+    .sidebar {
+        width: 260px;
+        right: -260px;
+    }
+    .sidebar.active {
+        right: 0;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
     }
 }
 
