@@ -120,7 +120,7 @@ body {
     position: fixed;
     top: 110px;
     left: 20px;
-    width: 380px;
+    width: 320px;
     background: var(--panel-bg);
     backdrop-filter: blur(25px);
     border: 1px solid var(--glass-border);
@@ -166,6 +166,7 @@ body {
     font-size: 16px;
     font-weight: 800;
     cursor: pointer;
+    margin: 25px 0;
     box-shadow: 0 4px 15px rgba(255, 61, 0, 0.3);
     transition: 0.3s;
 }

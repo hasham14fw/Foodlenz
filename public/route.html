@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <button class="calculate-btn" onclick="calculateRoute()">
+            <button class="calculate-btn" id="explore-btn" onclick="calculateRoute()" style="margin: 30px 0;">
                 <span>Explore Selection <span class="icon icon-route" style="margin-left: 8px; width: 14px; height: 14px;"></span></span>
             </button>
         </div>
@@ -108,7 +108,12 @@
 
     <script src="js/api.js"></script>
     <script src="Animation.js"></script>
+    <script src="js/api.js"></script>
+    <script src="Animation.js"></script>
     <script>
+        let map;
+        let allRestaurants = [];
+        
         checkAuth();
         
         async function startApp() {
@@ -204,7 +209,15 @@
         async function calculateRoute() {
             const originInput = document.getElementById('start-location-input');
             const originStr = originInput.value;
-            const restaurantId = selectedIdInput.value;
+            let restaurantId = selectedIdInput.value;
+            // Fallback: search by name if ID was not set (manually typed)
+            if (!restaurantId && searchInput.value) {
+                const manualMatch = allRestaurants.find(r => r.name.toLowerCase() === searchInput.value.toLowerCase());
+                if (manualMatch) {
+                    restaurantId = manualMatch.id;
+                    selectedIdInput.value = manualMatch.id;
+                }
+            }
             
             if (!originStr || !restaurantId) return alert('Please select origin (type or click map) and a restaurant.');
             

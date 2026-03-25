@@ -374,18 +374,32 @@ namespace Database {
             }
         }
         
-        // Build Graph Edges (Mock Logic remains)
+        // Build Graph Edges (Mock Logic for demo)
+        cityGraph.addVertex("Islamabad Center");
+        cityGraph.addVertex("F-6 Islamabad");
+        cityGraph.addVertex("F-7 Islamabad");
+        cityGraph.addVertex("Blue Area Islamabad");
+        
+        cityGraph.addEdge("Islamabad Center", "Blue Area Islamabad", 4.0);
+        cityGraph.addEdge("Blue Area Islamabad", "F-6 Islamabad", 3.0);
+        cityGraph.addEdge("Blue Area Islamabad", "F-7 Islamabad", 2.0);
+        
         auto rests = allRestaurants;
         for(size_t i=0; i<rests.size(); i++) {
             cityGraph.addVertex(rests[i].name);
             if (rests[i].city == "Islamabad") {
-                 cityGraph.addEdge("Islamabad Center", rests[i].name, 5.0);
-                 cityGraph.addEdge("F-6 Islamabad", rests[i].name, 3.0);
+                 // Connect to nearest major node
+                 if (i % 2 == 0) cityGraph.addEdge("Blue Area Islamabad", rests[i].name, 2.0);
+                 else cityGraph.addEdge("F-7 Islamabad", rests[i].name, 1.5);
             } else if (rests[i].city == "Lahore") {
-                 cityGraph.addEdge("Lahore Center", rests[i].name, 5.0);
+                 cityGraph.addVertex("Lahore Center");
+                 cityGraph.addVertex("Gulberg Lahore");
+                 cityGraph.addEdge("Lahore Center", "Gulberg Lahore", 4.0);
+                 cityGraph.addEdge("Gulberg Lahore", rests[i].name, 2.0);
             }
         }
     }
+
 
     Models::User CSVDatabase::createUser(const std::string& name, const std::string& email, 
                            const std::string& passwordHash, const std::string& city) {

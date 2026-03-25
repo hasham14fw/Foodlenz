@@ -98,23 +98,32 @@ private:
     }
     
     Models::Location getLocationFromNode(const std::string& nodeName) {
-        // Approximate coordinates for key nodes if strictly needed for map pins
+        // Approximate coordinates for key nodes in Pakistan
         // Islamabad
         if (nodeName.find("F-6") != std::string::npos) return Models::Location(nodeName, 33.7297, 73.0766);
+        if (nodeName.find("F-7") != std::string::npos) return Models::Location(nodeName, 33.7128, 73.0551);
         if (nodeName.find("Blue Area") != std::string::npos) return Models::Location(nodeName, 33.7077, 73.0503);
         if (nodeName.find("Islamabad") != std::string::npos) return Models::Location(nodeName, 33.6844, 73.0479);
         
         // Lahore
         if (nodeName.find("Gulberg") != std::string::npos) return Models::Location(nodeName, 31.5102, 74.3441);
+        if (nodeName.find("DHA") != std::string::npos) return Models::Location(nodeName, 31.4697, 74.4504);
         if (nodeName.find("Lahore") != std::string::npos) return Models::Location(nodeName, 31.5204, 74.3587);
         
         // Karachi
         if (nodeName.find("Clifton") != std::string::npos) return Models::Location(nodeName, 24.8138, 67.0315);
+        if (nodeName.find("Saddar") != std::string::npos) return Models::Location(nodeName, 24.8615, 67.0261);
         if (nodeName.find("Karachi") != std::string::npos) return Models::Location(nodeName, 24.8607, 67.0011);
         
-        // If we can't find coords, just return 0,0 but name is key
-        return Models::Location(nodeName, 0, 0); 
+        // Default fallbacks to prevent jumps to (0,0)
+        std::string lowerNode = nodeName;
+        std::transform(lowerNode.begin(), lowerNode.end(), lowerNode.begin(), ::tolower);
+        if (lowerNode.find("lahore") != std::string::npos) return Models::Location(nodeName, 31.5204, 74.3587);
+        if (lowerNode.find("karachi") != std::string::npos) return Models::Location(nodeName, 24.8607, 67.0011);
+        
+        return Models::Location(nodeName, 33.6844, 73.0479); // Default to Islamabad
     }
+
 };
 
 } // namespace Algorithms
