@@ -33,13 +33,28 @@ body {
         border-radius: 0;
         border: none;
         border-bottom: 1px solid var(--glass-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+    .hamburger {
+        display: block !important;
+        position: static;
+    }
+    .nav-right {
+        display: flex !important;
+    }
+    #main-nav {
+        display: none !important;
     }
     .control-panel {
         position: relative;
         top: 20px;
         left: 0;
-        width: 100%;
-        margin-bottom: 20px;
+        width: 92%;
+        margin: 0 auto 20px auto;
+        padding: 20px;
     }
     .info-panels {
         position: relative;
