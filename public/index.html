@@ -4,97 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOODLENZ - Eat Smart, Reach Fast</title>
-    
     <link rel="stylesheet" href="Styles.css">
     <link rel="stylesheet" href="Responsive.css">
-    <link rel="stylesheet" href="other.css">
     <link rel="icon" href="/public/Photoes/logo.jpg" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="top-bar">FOODLENZ</div>
     <div class="header">
-        <a href="index.html"><img src="/public/Photoes/logo.jpg" alt="Logo" width="90" height="90"></a>
-        <div class="school-name">
-            <div>FOODLENZ</div>
-            <div>Eat Smart, Reach Fast</div>
-        </div>
+        <a href="index.html" class="logo-container">
+            <img src="/public/Photoes/logo.jpg" alt="Logo">
+            <div class="school-name">
+                <div>FOODLENZ</div>
+                <div>Eat Smart, Reach Fast</div>
+            </div>
+        </a>
 
         <button class="hamburger" id="hamburger">&#9776;</button>
         <nav id="main-nav">
-            <a href="index.html">HOME</a>
+            <a href="index.html" class="active">HOME</a>
             <a href="search.html">SEARCH</a>
-            <a href="chatbot.html">AI BOT</a>
             <a href="route.html">MAP ROUTE</a>
             <button class="admissions-btn" onclick="logout()">LOGOUT</button>
         </nav>
     </div>
 
     <div class="sidebar" id="sidebar">
-        <a href="index.html">HOME</a>
+        <a href="index.html" class="active">HOME</a>
         <a href="search.html">SEARCH</a>
-        <a href="chatbot.html">AI BOT</a>
         <a href="route.html">MAP ROUTE</a>
         <button class="admissions-btn" onclick="logout()">LOGOUT</button>
     </div>
 
-    <div class="weather-container">
-        <div class="weather-left">
-            <h1>Islamabad</h1>
-            <div style="display: flex; align-items: center; gap: 20px;">
-                <span style="font-size: 48px; font-weight: bold;">16°C</span>
-                <span style="font-size: 24px;">Sunny</span>
-            </div>
-            <div style="margin-top: 10px; font-size: 16px;">
-                <span>🌅 Sunrise: 06:15 AM</span>
-                <span style="margin-left: 20px;">🌇 Sunset: 05:45 PM</span>
-            </div>
-            <div class="search" style="margin-top: 15px;">
-                <input type="text" id="city-input" placeholder="Enter city name..." value="Islamabad">
-                <button onclick="alert('Weather feature is currently in demo mode.')">Search</button>
-            </div>
-        </div>
-        <div class="weather-right">
-             <div class="sun-anim" id="weather-animation"></div>
-        </div>
-    </div>
-
-    <div class="news-message-container">
-        <div class="news-box animate-left">
-            <h2 id="news-heading"><div class="fire-anim"></div> Trending Restaurants</h2>
-            <p id="news-paragraph">
-                Based on user reviews and ratings, discover the top restaurants in your city!
-            </p>
-            <div class="carousel-wrapper">
-                <button class="scroll-btn left-btn" id="scroll-left">&#10094;</button>
-                <div class="restaurant-list" id="trending-restaurants">
-                    <div style="text-align: center; padding: 40px; width: 100%;">
-                        <p style="font-size: 18px; color: #666;">Loading trending restaurants...</p>
+    <main>
+        <!-- Modern Hero/Weather Section -->
+        <section class="weather-container animate-in">
+            <div class="weather-left">
+                <h1 id="city-name" style="background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Islamabad</h1>
+                <div style="display: flex; align-items: center; gap: 25px; margin: 15px 0;">
+                    <span id="temperature" style="font-size: 64px; font-weight: 800;">16°C</span>
+                    <div>
+                        <span id="weather-desc" style="font-size: 24px; color: var(--text-dim); display: block;">Cloudy</span>
+                        <div style="font-size: 14px; color: var(--text-dim);">
+                            <span id="sunrise"><span class="icon icon-sun" style="color: #ff9100; margin-right: 5px;"></span> 06:15 AM</span>
+                            <span id="sunset" style="margin-left: 15px;"><span class="icon icon-sun" style="background-color: #ff3d00; margin-right: 5px; opacity: 0.6;"></span> 05:45 PM</span>
+                        </div>
                     </div>
                 </div>
-                <button class="scroll-btn right-btn" id="scroll-right">&#10095;</button>
+                <div class="search">
+                    <input type="text" id="city-input" placeholder="Search another city..." value="Islamabad">
+                    <button onclick="updateWeather()">Update</button>
+                </div>
             </div>
-        </div>
-    </div>
+            <div class="weather-right">
+                <div class="sun-anim" id="weather-animation"></div>
+            </div>
+        </section>
+
+        <!-- Trending Section -->
+        <section class="news-message-container">
+            <div class="news-box animate-in" style="animation-delay: 0.2s;">
+                <h2 id="news-heading"><div class="fire-anim" style="width: 32px; height: 32px; background: var(--primary); mask: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath d=%22M19.48 12.35c-1.57-4.08-7.16-4.3-5.81-10.23c.1-.44-.37-.78-.75-.55c-3.18 1.97-5.06 5.33-5.06 8.91c0 3.01 2.22 5.5 5.09 6.09c.33.07.41.51.13.68c-2.43 1.48-2.96 4.46-.83 6.05c.21.16.51.01.51-.26c0-1.12.18-2.61.91-3.61c.45-.61.9-1.2 1.53-1.63c3.04-2.07 4.95-3.08 4.28-5.45zm-6.22 6.51c-.13.08-.18.26-.06.39c1.07 1.15.86 3.12-.59 3.99c-.19.11-.12.42.1.42c2.02-.03 3.63-1.92 2.72-4.14c-.09-.23-.39-.33-.6-.18c-1.18.81-1.21 1.25-1.57 1.52z%22/%3E%3C/svg%3E'); -webkit-mask: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath d=%22M19.48 12.35c-1.57-4.08-7.16-4.3-5.81-10.23c.1-.44-.37-.78-.75-.55c-3.18 1.97-5.06 5.33-5.06 8.91c0 3.01 2.22 5.5 5.09 6.09c.33.07.41.51.13.68c-2.43 1.48-2.96 4.46-.83 6.05c.21.16.51.01.51-.26c0-1.12.18-2.61.91-3.61c.45-.61.9-1.2 1.53-1.63c3.04-2.07 4.95-3.08 4.28-5.45zm-6.22 6.51c-.13.08-.18.26-.06.39c1.07 1.15.86 3.12-.59 3.99c-.19.11-.12.42.1.42c2.02-.03 3.63-1.92 2.72-4.14c-.09-.23-.39-.33-.6-.18c-1.18.81-1.21 1.25-1.57 1.52z%22/%3E%3C/svg%3E'); mask-size: cover; -webkit-mask-size: cover; display: inline-block;"></div> Trending Restaurants</h2>
+                <p id="news-paragraph">Handpicked top-rated restaurants discovered by our AI engine for you.</p>
+                
+                <div class="restaurant-grid-main" id="trending-restaurants">
+                    <div style="text-align: center; padding: 40px; width: 100%;">
+                        <p style="font-size: 18px; color: var(--text-dim);">Analyzing local trends...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Section (New Addition for Consistency) -->
+        <section class="news-message-container" style="padding-top: 0;">
+            <div class="news-box animate-in" style="animation-delay: 0.4s; border-color: rgba(255, 145, 0, 0.2);">
+                <h2 id="news-heading"><div class="star-icon" style="width: 32px; height: 32px;"></div> Personalized for You</h2>
+                <p id="news-paragraph">Based on your past favorites and cuisine preferences.</p>
+                <div class="restaurant-grid-main" id="recommended-restaurants">
+                    <div style="text-align: center; padding: 40px; width: 100%;">
+                        <p style="font-size: 18px; color: var(--text-dim);">Tailoring recommendations...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="footer-content">
-            <p>Contact Us</p>
+            <p style="font-size: 24px; font-weight: 800; margin-bottom: 20px;">STAY CONNECTED</p>
             <ul class="footer-links">
-                <li><a href="tel:+923270222414"><img src="/public/Photoes/Call-Icon.png" alt="Call" width="30" height="30"></a></li>
-                <li><a href="mailto:contact@foodlenz.com"><img src="/public/Photoes/Mail-Icon.png" alt="Mail" width="30" height="30"></a></li>
-                <li><a href="https://www.facebook.com" target="_blank"><img src="/public/Photoes/Facebook-Icon.png" alt="Facebook" width="30" height="30"></a></li>
-                <li><a href="https://wa.me/923270222414" target="_blank"><img src="/public/Photoes/Whatsapp-Icon.png" alt="WhatsApp" width="30" height="30"></a></li>
-                <li><a href="https://www.instagram.com" target="_blank"><img src="/public/Photoes/Inta-Icon.png" alt="Instagram" width="30" height="30"></a></li>
+                <li><a href="tel:+923270222414"><img src="/public/Photoes/Call-Icon.png" alt="Call"></a></li>
+                <li><a href="mailto:contact@foodlenz.com"><img src="/public/Photoes/Mail-Icon.png" alt="Mail"></a></li>
+                <li><a href="https://www.facebook.com" target="_blank"><img src="/public/Photoes/Facebook-Icon.png" alt="Facebook"></a></li>
+                <li><a href="https://wa.me/923270222414" target="_blank"><img src="/public/Photoes/Whatsapp-Icon.png" alt="WhatsApp"></a></li>
             </ul>
         </div>
-        <div class="footer-dev">
-            <p>Powered By AIR UNIVERSITY ISLAMABAD</p>
+        <div class="footer-dev" style="margin-top: 40px;">
+            <p>© 2026 FOODLENZ • POWERED BY AIR UNIVERSITY ISLAMABAD</p>
         </div>
     </footer>
 
     <script src="js/api.js"></script>
     <script src="Animation.js"></script>
     <script src="js/home.js"></script>
+    <script>
+        // Enhanced Sidebar Toggle for new UI
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sidebar.classList.toggle('active');
+        });
+        
+        document.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        });
+        
+        sidebar.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    </script>
 </body>
 </html>

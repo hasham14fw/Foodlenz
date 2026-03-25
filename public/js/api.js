@@ -1,6 +1,6 @@
 // Common API utilities and authentication helpers
 
-const API_BASE = 'http://localhost:5050';
+const API_BASE = 'http://localhost:3000';
 
 // Authentication functions
 function getAuthToken() {

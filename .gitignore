@@ -1,33 +1,57 @@
-# # Build directories
-# build/
-# cmake-build-*/
+# Build directories
+build/
+cmake-build-*/
+bin/
+obj/
 
-# # Environment variables
-# #.env
+# Environment variables
+.env
+.env.local
+.env.*.local
 
-# # IDE
-# .vs/
-# .vscode/
-# *.swp
-# *.swo
-# *~
+# IDE
+.vs/
+.vscode/
+*.swp
+*.swo
+*~
+*.suo
+*.user
+*.userosscache
+*.sln.docuser
 
-# # Compiled files
-# *.exe
-# *.dll
-# *.so
-# *.dylib
-# *.o
-# *.obj
+# Compiled files
+*.exe
+*.dll
+*.so
+*.dylib
+*.o
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
 
-# # CMake
-# CMakeCache.txt
-# CMakeFiles/
-# cmake_install.cmake
-# Makefile
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+_deps/
 
-# # Dependencies
-# asio-master.zip
+# Dependencies
+node_modules/
+asio-master.zip
+asio/
 
-# # Logs
-# *.log
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+Thumbs.db
+.DS_Store
+

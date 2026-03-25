@@ -8,21 +8,23 @@
     <link rel="stylesheet" href="Responsive.css">
     <link rel="stylesheet" href="css/restaurant.css">
     <link rel="icon" href="/public/Photoes/logo.jpg" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="top-bar">FOODLENZ</div>
     <div class="header">
-        <a href="index.html"><img src="/public/Photoes/logo.jpg" alt="Logo" width="90" height="90"></a>
-        <div class="school-name">
-            <div>FOODLENZ</div>
-            <div>Eat Smart, Reach Fast</div>
-        </div>
+        <a href="index.html" class="logo-container">
+            <img src="/public/Photoes/logo.jpg" alt="Logo">
+            <div class="school-name">
+                <div>FOODLENZ</div>
+                <div>Eat Smart, Reach Fast</div>
+            </div>
+        </a>
 
         <button class="hamburger" id="hamburger">&#9776;</button>
         <nav id="main-nav">
             <a href="index.html">HOME</a>
             <a href="search.html">SEARCH</a>
-            <a href="chatbot.html">AI BOT</a>
             <a href="route.html">MAP ROUTE</a>
             <button class="admissions-btn" onclick="logout()">LOGOUT</button>
         </nav>
@@ -31,78 +33,96 @@
     <div class="sidebar" id="sidebar">
         <a href="index.html">HOME</a>
         <a href="search.html">SEARCH</a>
-        <a href="chatbot.html">AI BOT</a>
         <a href="route.html">MAP ROUTE</a>
         <button class="admissions-btn" onclick="logout()">LOGOUT</button>
     </div>
 
-    <div class="restaurant-container">
-        <div class="restaurant-header" id="restaurant-header">
-            <div class="loading-spinner">Loading restaurant details...</div>
-        </div>
-
-        <div class="tabs-container">
-            <button class="tab-btn active" onclick="switchTab('menu')"><span class="menu-anim"></span> Menu</button>
-            <button class="tab-btn" onclick="switchTab('reviews')">⭐ Reviews</button>
-            <button class="tab-btn" onclick="switchTab('opinion')"><span class="pen-anim"></span> Your Opinion</button>
-        </div>
-
-        <div class="tab-content active" id="menu-tab">
-            <h2>Menu</h2>
-            <div class="menu-grid" id="menu-grid">
-                <p class="loading-text">Loading menu...</p>
+    <main class="restaurant-container">
+        <div class="restaurant-header animate-in" id="restaurant-header">
+            <div style="text-align: center; width: 100%; border-radius: 20px; padding: 40px; background: rgba(0,0,0,0.2);">
+                <p style="font-size: 18px; color: var(--text-dim);">Loading restaurant details...</p>
             </div>
         </div>
 
-        <div class="tab-content" id="reviews-tab">
-            <h2>Customer Reviews</h2>
+        <div class="tabs-container animate-in" style="animation-delay: 0.2s;">
+            <button class="tab-btn active" onclick="switchTab('reviews')"><span class="icon icon-star" style="margin-right: 8px;"></span> Genuine Reviews</button>
+            <button class="tab-btn" onclick="switchTab('opinion')"><span class="icon icon-feedback" style="margin-right: 8px;"></span> Share Online Feedback</button>
+        </div>
+
+        <div class="tab-content active" id="reviews-tab">
+            <h2 style="margin-bottom: 25px; font-weight: 800;">Community Experience</h2>
             <div class="reviews-list" id="reviews-list">
                 <p class="loading-text">Loading reviews...</p>
             </div>
         </div>
 
         <div class="tab-content" id="opinion-tab">
-            <h2>Share Your Experience</h2>
+            <h2 style="margin-bottom: 25px; font-weight: 800;">Rate Your Visit</h2>
             <form class="opinion-form" id="opinion-form">
                 <div class="rating-group">
-                    <label>Taste Rating:</label>
+                    <label style="font-weight: 600; color: var(--accent);">Taste Quality</label>
                     <div class="stars">
-                        <input type="radio" name="taste" value="5" id="taste5"><label for="taste5">★</label>
+                        <input type="radio" name="taste" value="5" id="taste5" required><label for="taste5">★</label>
                         <input type="radio" name="taste" value="4" id="taste4"><label for="taste4">★</label>
                         <input type="radio" name="taste" value="3" id="taste3"><label for="taste3">★</label>
                         <input type="radio" name="taste" value="2" id="taste2"><label for="taste2">★</label>
                         <input type="radio" name="taste" value="1" id="taste1"><label for="taste1">★</label>
                     </div>
                 </div>
+
                 <div class="rating-group">
-                    <label>Ambiance Rating:</label>
+                    <label style="font-weight: 600; color: var(--accent);">Atmosphere & Decor</label>
                     <div class="stars">
-                        <input type="radio" name="ambiance" value="5" id="amb5"><label for="amb5">★</label>
+                        <input type="radio" name="ambiance" value="5" id="amb5" required><label for="amb5">★</label>
                         <input type="radio" name="ambiance" value="4" id="amb4"><label for="amb4">★</label>
                         <input type="radio" name="ambiance" value="3" id="amb3"><label for="amb3">★</label>
                         <input type="radio" name="ambiance" value="2" id="amb2"><label for="amb2">★</label>
                         <input type="radio" name="ambiance" value="1" id="amb1"><label for="amb1">★</label>
                     </div>
                 </div>
+
                 <div class="rating-group">
-                    <label>Overall Rating:</label>
+                    <label style="font-weight: 600; color: var(--accent);">Total Rating</label>
                     <div class="stars">
-                        <input type="radio" name="overall" value="5" id="ovr5"><label for="ovr5">★</label>
+                        <input type="radio" name="overall" value="5" id="ovr5" required><label for="ovr5">★</label>
                         <input type="radio" name="overall" value="4" id="ovr4"><label for="ovr4">★</label>
                         <input type="radio" name="overall" value="3" id="ovr3"><label for="ovr3">★</label>
                         <input type="radio" name="overall" value="2" id="ovr2"><label for="ovr2">★</label>
                         <input type="radio" name="overall" value="1" id="ovr1"><label for="ovr1">★</label>
                     </div>
                 </div>
-                <textarea id="comment" placeholder="Write your review here..." rows="5" required></textarea>
-                <button type="submit" class="submit-btn">Submit Review</button>
+
+                <textarea id="comment" placeholder="What did you love or dislike about this place?" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Post Expert Review <span class="icon icon-send" style="margin-left: 8px; width: 14px; height: 14px;"></span></button>
                 <div id="form-message"></div>
             </form>
         </div>
-    </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p style="font-size: 24px; font-weight: 800; margin-bottom: 20px;">STAY CONNECTED</p>
+            <ul class="footer-links">
+                <li><a href="tel:+923270222414"><img src="/public/Photoes/Call-Icon.png" alt="Call"></a></li>
+                <li><a href="mailto:contact@foodlenz.com"><img src="/public/Photoes/Mail-Icon.png" alt="Mail"></a></li>
+                <li><a href="https://www.facebook.com" target="_blank"><img src="/public/Photoes/Facebook-Icon.png" alt="Facebook"></a></li>
+                <li><a href="https://wa.me/923270222414" target="_blank"><img src="/public/Photoes/Whatsapp-Icon.png" alt="WhatsApp"></a></li>
+            </ul>
+        </div>
+        <div class="footer-dev" style="margin-top: 40px;">
+            <p>© 2026 FOODLENZ • POWERED BY AIR UNIVERSITY ISLAMABAD</p>
+        </div>
+    </footer>
 
     <script src="js/api.js"></script>
     <script src="Animation.js"></script>
     <script src="js/restaurant.js"></script>
+    <script>
+        // Sidebar Toggle
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        hamburger.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.toggle('active'); });
+        document.addEventListener('click', () => { sidebar.classList.remove('active'); });
+    </script>
 </body>
 </html>

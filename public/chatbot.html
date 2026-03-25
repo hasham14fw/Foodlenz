@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Bot - FOODLENZ</title>
-    <link rel="stylesheet" href="Styles.css" />
-    <link rel="stylesheet" href="Responsive.css" />
-    <link rel="stylesheet" href="css/chatbot.css" />
-    <link rel="icon" href="/public/Photoes/logo.jpg" type="image/png" />
-  </head>
-  <body>
-    <div class="top-bar" style="height: -10px;">FOODLENZ</div>
+    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="Responsive.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="icon" href="/public/Photoes/logo.jpg" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
     <div class="header">
-        <a href="index.html"><img src="/public/Photoes/logo.jpg" alt="Logo" width="90" height="90"></a>
-        <div class="school-name">
-            <div>FOODLENZ</div>
-            <div>Eat Smart, Reach Fast</div>
-        </div>
+        <a href="index.html" class="logo-container">
+            <img src="/public/Photoes/logo.jpg" alt="Logo">
+            <div class="school-name">
+                <div>FOODLENZ</div>
+                <div>Eat Smart, Reach Fast</div>
+            </div>
+        </a>
 
         <button class="hamburger" id="hamburger">&#9776;</button>
         <nav id="main-nav">
             <a href="index.html">HOME</a>
             <a href="search.html">SEARCH</a>
-            <a href="chatbot.html">AI BOT</a>
+            <a href="chatbot.html" class="active">AI BOT</a>
             <a href="route.html">MAP ROUTE</a>
             <button class="admissions-btn" onclick="logout()">LOGOUT</button>
         </nav>
@@ -31,43 +34,57 @@
     <div class="sidebar" id="sidebar">
         <a href="index.html">HOME</a>
         <a href="search.html">SEARCH</a>
-        <a href="chatbot.html">AI BOT</a>
+        <a href="chatbot.html" class="active">AI BOT</a>
         <a href="route.html">MAP ROUTE</a>
         <button class="admissions-btn" onclick="logout()">LOGOUT</button>
     </div>
 
-    <div class="chatbot-container">
-      <div class="chat-header">
-        <h1><span class="robot-anim"></span>Restaurant AI Assistant</h1>
-        <p>Ask me anything about restaurants!</p>
-      </div>
+    <main>
+        <div class="chatbot-container animate-in">
+            <div class="chat-header">
+                <h1><div class="robot-anim"></div> Restaurant AI Assistant</h1>
+                <p>Hello! I'm your restaurant assistant. Ask me about cuisines, budgets, or locations.</p>
+            </div>
 
-      <div class="chat-messages" id="chat-messages">
-        <div class="message bot-message">
-          <p>
-            <span class="wave-anim">👋</span> Hello! I'm your restaurant
-            assistant. Ask me about cuisines, budgets, locations, or anything
-            else!
-          </p>
-          <p class="hint">
-            Try: "I want Italian food" or "Show me restaurants in Islamabad"
-          </p>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    <p>👋 Hello! How can I help you find a great meal today?</p>
+                    <p class="hint">Try: "Italian in Islamabad"</p>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Type your message here..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">Send</button>
+            </div>
         </div>
-      </div>
+    </main>
 
-      <div class="chat-input-container">
-        <input
-          type="text"
-          id="chat-input"
-          placeholder="Type your message..."
-          onkeypress="handleKeyPress(event)"
-        />
-        <button onclick="sendMessage()">Send</button>
-      </div>
-    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p style="font-size: 24px; font-weight: 800; margin-bottom: 20px;">STAY CONNECTED</p>
+            <ul class="footer-links">
+                <li><a href="tel:+923270222414"><img src="/public/Photoes/Call-Icon.png" alt="Call"></a></li>
+                <li><a href="mailto:contact@foodlenz.com"><img src="/public/Photoes/Mail-Icon.png" alt="Mail"></a></li>
+                <li><a href="https://www.facebook.com" target="_blank"><img src="/public/Photoes/Facebook-Icon.png" alt="Facebook"></a></li>
+                <li><a href="https://wa.me/923270222414" target="_blank"><img src="/public/Photoes/Whatsapp-Icon.png" alt="WhatsApp"></a></li>
+                <li><a href="https://www.instagram.com" target="_blank"><img src="/public/Photoes/Inta-Icon.png" alt="Instagram"></a></li>
+            </ul>
+        </div>
+        <div class="footer-dev" style="margin-top: 40px;">
+            <p>© 2026 FOODLENZ • POWERED BY AIR UNIVERSITY ISLAMABAD</p>
+        </div>
+    </footer>
 
     <script src="js/api.js"></script>
     <script src="Animation.js"></script>
     <script src="js/chatbot.js"></script>
-  </body>
+    <script>
+        // Sidebar Toggle
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        hamburger.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.toggle('active'); });
+        document.addEventListener('click', () => { sidebar.classList.remove('active'); });
+    </script>
+</body>
 </html>

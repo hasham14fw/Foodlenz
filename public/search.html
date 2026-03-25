@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Restaurants - FOODLENZ</title>
+    <title>Discover Food - FOODLENZ</title>
     <link rel="stylesheet" href="Styles.css">
     <link rel="stylesheet" href="Responsive.css">
     <link rel="stylesheet" href="css/search.css">
     <link rel="icon" href="/public/Photoes/logo.jpg" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="top-bar">FOODLENZ</div>
     <div class="header">
-        <a href="index.html"><img src="/public/Photoes/logo.jpg" alt="Logo" width="90" height="90"></a>
-        <div class="school-name">
-            <div>FOODLENZ</div>
-            <div>Eat Smart, Reach Fast</div>
-        </div>
+        <a href="index.html" class="logo-container">
+            <img src="/public/Photoes/logo.jpg" alt="Logo">
+            <div class="school-name">
+                <div>FOODLENZ</div>
+                <div>Eat Smart, Reach Fast</div>
+            </div>
+        </a>
 
         <button class="hamburger" id="hamburger">&#9776;</button>
         <nav id="main-nav">
             <a href="index.html">HOME</a>
-            <a href="search.html">SEARCH</a>
-            <a href="chatbot.html">AI BOT</a>
+            <a href="search.html" class="active">SEARCH</a>
             <a href="route.html">MAP ROUTE</a>
             <button class="admissions-btn" onclick="logout()">LOGOUT</button>
         </nav>
@@ -30,36 +32,35 @@
 
     <div class="sidebar" id="sidebar">
         <a href="index.html">HOME</a>
-        <a href="search.html">SEARCH</a>
-        <a href="chatbot.html">AI BOT</a>
+        <a href="search.html" class="active">SEARCH</a>
         <a href="route.html">MAP ROUTE</a>
         <button class="admissions-btn" onclick="logout()">LOGOUT</button>
     </div>
 
-    <div class="search-page-container">
-        <div class="search-hero">
-            <h1><div class="glass-anim"></div> Discover Amazing Restaurants</h1>
-            <p>Find your perfect dining experience</p>
-        </div>
+    <main class="search-page-container">
+        <section class="search-hero animate-in">
+            <h1>Fine Dining Reimagined</h1>
+            <p>From local gems to world-class cuisines, discover the finest culinary experiences in your city.</p>
+        </section>
 
-        <div class="search-section">
+        <section class="search-section animate-in" style="animation-delay: 0.2s;">
             <div class="search-bar-container">
-                <input type="text" id="search-input" placeholder="Search restaurants by name..." onkeyup="performSearch()">
+                <input type="text" id="search-input" placeholder="Search by restaurant name..." onkeyup="performSearch()">
             </div>
 
             <div class="filters-container">
                 <select id="cuisine-filter" onchange="performSearch()">
                     <option value="">All Cuisines</option>
-                    <option value="Italian">Italian</option>
-                    <option value="Chinese">Chinese</option>
-                    <option value="Pakistani">Pakistani</option>
-                    <option value="Japanese">Japanese</option>
-                    <option value="Indian">Indian</option>
-                    <option value="French">French</option>
-                    <option value="Korean">Korean</option>
-                    <option value="Mexican">Mexican</option>
-                    <option value="Thai">Thai</option>
-                    <option value="American">American</option>
+                    <option value="Italian">Italian Cuisine</option>
+                    <option value="Chinese">Chinese Wonders</option>
+                    <option value="Pakistani">Pakistani Traditional</option>
+                    <option value="Japanese">Japanese Delicacies</option>
+                    <option value="Indian">Indian Spices</option>
+                    <option value="French">French Classic</option>
+                    <option value="Korean">Korean Soul Food</option>
+                    <option value="Mexican">Mexican Heat</option>
+                    <option value="Thai">Thai Flavors</option>
+                    <option value="American">American Classics</option>
                 </select>
 
                 <select id="city-filter" onchange="performSearch()">
@@ -70,32 +71,56 @@
                 </select>
 
                 <select id="rating-filter" onchange="performSearch()">
-                    <option value="0">All Ratings</option>
-                    <option value="4">4+ Stars</option>
-                    <option value="4.5">4.5+ Stars</option>
+                    <option value="0">Any Rating</option>
+                    <option value="4">4.0+ Stars Rated</option>
+                    <option value="4.5">4.5+ Stars Elite</option>
                 </select>
 
-                <button class="filter-btn" onclick="performSearch()">🔍 Search</button>
+                <button class="filter-btn" onclick="performSearch()">Explore Selection <span class="icon icon-search" style="margin-left: 8px; width: 16px; height: 16px;"></span></button>
             </div>
-        </div>
+        </section>
 
-        <div class="results-section">
-            <h2 id="results-heading">All Restaurants</h2>
+        <section class="results-section animate-in" style="animation-delay: 0.4s;">
+            <h2 id="results-heading">Featured Establishments</h2>
             <div class="restaurant-grid" id="results-grid">
-                <p class="loading-text">Loading restaurants...</p>
+                <p class="loading-text">Mining the best options for you...</p>
             </div>
-        </div>
+            <div class="show-more-cnt" id="show-more-container" style="display: none;">
+                <button class="filter-btn" id="show-more-btn">Show More Results 📂</button>
+            </div>
+        </section>
 
-        <div class="recommended-section" id="recommended-section">
-            <h2><div class="sparkle-anim"></div> Recommended For You</h2>
+        <section class="recommended-section animate-in" style="animation-delay: 0.6s;">
+            <h2 style="font-size: 28px; margin-top: 60px;">💫 Personalized Recommendations</h2>
             <div class="restaurant-grid" id="recommended-grid">
-                <p class="loading-text">Loading recommendations...</p>
+                <p class="loading-text">Calculating your favorites...</p>
             </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p style="font-size: 24px; font-weight: 800; margin-bottom: 20px;">STAY CONNECTED</p>
+            <ul class="footer-links">
+                <li><a href="tel:+923270222414"><img src="/public/Photoes/Call-Icon.png" alt="Call"></a></li>
+                <li><a href="mailto:contact@foodlenz.com"><img src="/public/Photoes/Mail-Icon.png" alt="Mail"></a></li>
+                <li><a href="https://www.facebook.com" target="_blank"><img src="/public/Photoes/Facebook-Icon.png" alt="Facebook"></a></li>
+                <li><a href="https://wa.me/923270222414" target="_blank"><img src="/public/Photoes/Whatsapp-Icon.png" alt="WhatsApp"></a></li>
+            </ul>
         </div>
-    </div>
+        <div class="footer-dev" style="margin-top: 40px;">
+            <p>© 2026 FOODLENZ • POWERED BY AIR UNIVERSITY ISLAMABAD</p>
+        </div>
+    </footer>
 
     <script src="js/api.js"></script>
     <script src="Animation.js"></script>
     <script src="js/search.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        hamburger.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.toggle('active'); });
+        document.addEventListener('click', () => { sidebar.classList.remove('active'); });
+    </script>
 </body>
 </html>

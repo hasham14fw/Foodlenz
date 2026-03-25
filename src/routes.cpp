@@ -25,7 +25,6 @@ static std::string extractUserIdFromToken(const std::string& token) {
     size_t pos1 = 0;
     size_t pos2 = 0;
     
-    // Find first _
     for(size_t i=0; i<token.length(); i++) {
         if(token[i] == '_') {
             pos1 = i;
@@ -33,7 +32,6 @@ static std::string extractUserIdFromToken(const std::string& token) {
         }
     }
     
-    // Find last _
     for(size_t i=token.length()-1; i>0; i--) {
         if(token[i] == '_') {
             pos2 = i;
@@ -196,7 +194,6 @@ static crow::json::wvalue processChatbotQuery(const std::string& userId, const s
     
     ChatConversation& session = getSession(userId);
     
-    // Update session with any found entities
     bool foundCuisine = false;
     bool foundCity = false;
     
@@ -389,9 +386,6 @@ void setupRoutes(crow::SimpleApp& app, Database::IDatabase& db,
         res.end();
     });
     
-    // ==================== AUTHENTICATION ROUTES ====================
-    
-    // POST /api/signup
     CROW_ROUTE(app, "/api/signup").methods("POST"_method)
     ([&db](const crow::request& req){
         auto body = crow::json::load(req.body);
@@ -467,9 +461,6 @@ void setupRoutes(crow::SimpleApp& app, Database::IDatabase& db,
         return res;
     });
     
-    // ==================== RESTAURANT ROUTES ====================
-    
-    // GET /api/restaurants/trending
     CROW_ROUTE(app, "/api/restaurants/trending")
     ([&db](){
         auto trending = db.getTrendingRestaurants(6);
@@ -686,7 +677,6 @@ void setupRoutes(crow::SimpleApp& app, Database::IDatabase& db,
         return res;
     });
     
-    // ==================== CHATBOT ROUTE ====================
     CROW_ROUTE(app, "/api/chatbot").methods("POST"_method)
     ([&db](const crow::request& req){
         auto authHeader = req.get_header_value("Authorization");
@@ -707,9 +697,6 @@ void setupRoutes(crow::SimpleApp& app, Database::IDatabase& db,
         return res;
     });
     
-    // ==================== ROUTE/MAP ROUTES ====================
-    
-    // POST /api/route
     CROW_ROUTE(app, "/api/route").methods("POST"_method)
     ([&db, &routeFinder](const crow::request& req){
         auto body = crow::json::load(req.body);
