@@ -22,7 +22,7 @@ The project is designed as a demonstration of advanced Data Structures and Algor
 - Frontend: HTML5, CSS3, Vanilla JavaScript.
 - Web Backend: Node.js, Express.js.
 - Algorithm Backend: C++17, Crow (Web Framework).
-- Database: MongoDB (via Mongoose) and GitHub-hosted CSV files.
+- Database: MongoDB (via Mongoose).
 - Build System: CMake.
 
 ## Getting Started
