@@ -117,10 +117,7 @@
     <script src="Animation.js"></script>
     <script src="js/search.js"></script>
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const sidebar = document.getElementById('sidebar');
-        hamburger.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.toggle('active'); });
-        document.addEventListener('click', () => { sidebar.classList.remove('active'); });
+        // Sidebar logic is handled centrally in Animation.js
     </script>
 </body>
 </html>
