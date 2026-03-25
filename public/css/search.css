@@ -172,8 +172,27 @@
     box-shadow: 0 6px 15px rgba(255, 61, 0, 0.4);
 }
 
-@media (max-width: 768px) {
-    .search-hero h1 { font-size: 40px; }
-    .search-page-container { padding: 0 20px; }
-    .filters-container select { width: 100%; flex: none; }
+@media (max-width: 1000px) {
+    .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
+
+@media (max-width: 768px) {
+    .search-hero h1 { font-size: 36px; }
+    .search-hero p { font-size: 16px; }
+    .search-page-container { padding: 0 15px; margin: 30px auto; }
+    .filters-container { flex-direction: column; }
+    .filters-container select { width: 100%; flex: none; }
+    .filter-btn { width: 100%; }
+    .search-bar-container input { font-size: 16px; padding: 15px 20px; }
+}
+
+@media (max-width: 600px) {
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+    }
+    .results-section h2 { font-size: 24px; }
+    .search-hero { padding: 50px 15px; }
+}
+

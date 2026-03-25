@@ -19,8 +19,54 @@ body {
     padding: 0;
     background-color: var(--bg-dark);
     color: var(--text-main);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
+
+/* Existing styles... */
+
+@media (max-width: 900px) {
+    .header {
+        position: relative;
+        top: 0; left: 0; right: 0;
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        border-bottom: Premium;
+    }
+    .control-panel {
+        position: relative;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .info-panels {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+    }
+    #map {
+        position: relative;
+        height: 60vh;
+        width: 100%;
+        border-radius: 20px;
+    }
+    .route-stats-overlay {
+        position: relative;
+        bottom: 0px;
+        left: 0;
+        transform: none;
+        width: 100%;
+        border-radius: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
 
 #map {
     position: fixed;
