@@ -1,0 +1,3 @@
+FoodLenz is an advanced restaurant search and discovery system. It features a high-performance backend that combines modern Node.js web APIs with a custom-engineered C++ engine for processing data structures and algorithms.
+
+The application allows users to search for establishments through prefix-based trees and balanced AVL categorizers. It calculates the shortest dining routes using Dijkstra's algorithm on a weighted graph and provides an interactive Trie-based AI chatbot. With integrated MongoDB persistence and synchronized GitHub CSV storage, it represents a complete solution for high-efficiency data management and user-centric discovery.
